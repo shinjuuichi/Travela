@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+:root {
+	--foreground: #1e3a8a; /* Blue text */
+	--primary: #1e3a8a; /* Primary blue color */
+	--secondary: #93c5fd; /* Light blue for hover effects */
+}
+
+body {
+	background: linear-gradient(to right, #3b82f6, #9333ea); /* Gradient background */
+	color: var(--foreground);
+	font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--secondary);
+}

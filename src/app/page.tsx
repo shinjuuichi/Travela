@@ -14,7 +14,7 @@ export default function Home() {
   const [filters, setFilters] = useState({
     area: '',
     type: '',
-    priceRange: '', 
+    priceRange: '',
   });
 
   const popularVenues = venues.filter((venue) => venue.rating >= 4.5);
@@ -118,7 +118,7 @@ export default function Home() {
                     height={400}
                     className="w-full h-[400px] object-cover"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
+                  <div>
                     <div className="text-white p-6 text-left w-full">
                       <h3 className="text-2xl font-bold mb-2">{venue.name}</h3>
                       <div className="flex items-center mb-2">
@@ -317,12 +317,6 @@ export default function Home() {
               <p className="text-xl text-white">
                 No venues match your search criteria.
               </p>
-              <button
-                onClick={resetFilters}
-                className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition duration-300"
-              >
-                Reset Filters
-              </button>
             </div>
           )}
         </div>

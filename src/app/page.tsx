@@ -14,7 +14,7 @@ export default function Home() {
   const [filters, setFilters] = useState({
     area: '',
     type: '',
-    priceRange: '',
+    priceRange: '', 
   });
 
   const popularVenues = venues.filter((venue) => venue.rating >= 4.5);

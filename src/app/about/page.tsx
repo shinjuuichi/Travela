@@ -34,25 +34,21 @@ export default function About() {
         />
       </Head>
 
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-16 md:py-24">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            About LocalEats
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">About Travela</h1>
           <p className="text-xl max-w-3xl mx-auto">
             Connecting food lovers with authentic local experiences since 2020.
           </p>
         </div>
       </div>
 
-      {/* Our Mission */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              At LocalEats, we believe that great food experiences should be
+              At Travela, we believe that great food experiences should be
               accessible to everyone. Our mission is to help people discover and
               enjoy the best local restaurants, cafes, and street food vendors
               in their area through honest, detailed reviews and
@@ -137,14 +133,14 @@ export default function About() {
       </div>
 
       {/* Our Story */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-700">
+              <div className="space-y-4">
                 <p>
-                  LocalEats began in 2020 when our founder, Alex, found himself
+                  Travela began in 2020 when our founder, Alex, found himself
                   constantly being asked by friends and family for restaurant
                   recommendations. As someone who had explored countless local
                   eateries, he realized there was a need for a platform that
@@ -153,7 +149,7 @@ export default function About() {
                 <p>
                   What started as a simple blog quickly grew into a
                   comprehensive platform as more food enthusiasts joined the
-                  team. Today, LocalEats helps thousands of people discover
+                  team. Today, Travela helps thousands of people discover
                   amazing food spots in their area every day.
                 </p>
                 <p>
@@ -220,7 +216,7 @@ export default function About() {
       </div>
 
       {/* Meet the Team */}
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">
             Meet the Team
@@ -228,7 +224,10 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+              <div
+                key={index}
+                className="bg-white/90 p-6 rounded-xl shadow-md text-blue-900"
+              >
                 <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
                   <Image
                     src={member.image || '/placeholder.svg'}
@@ -252,16 +251,18 @@ export default function About() {
       </div>
 
       {/* Join Us */}
-      <div className="py-16 bg-indigo-600 text-white">
+      <div className="py-16 bg-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Join Our Community</h2>
-          <p className="text-xl max-w-2xl mx-auto mb-8">
+          <h2 className="text-3xl font-bold mb-6 text-blue-900">
+            Join Our Community
+          </h2>
+          <p className="text-xl max-w-2xl mx-auto mb-8 text-blue-900">
             Love food as much as we do? Join our community of food enthusiasts
             and help others discover amazing local eateries.
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-indigo-600 hover:bg-gray-100 px-6 py-3 rounded-full font-medium transition duration-300"
+            className="inline-block bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-full font-medium transition duration-300"
           >
             Get in Touch
           </Link>

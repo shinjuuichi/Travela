@@ -78,7 +78,7 @@ export default function Contact() {
         />
       </Head>
 
-      <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white py-16">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl max-w-2xl mx-auto">

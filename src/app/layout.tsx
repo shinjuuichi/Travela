@@ -1,82 +1,81 @@
-// app/layout.tsx
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import './globals.css'
-import { NotificationProvider } from '@/controller/notificationController'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+// src/app/layout.tsx
+import type { Metadata } from 'next';
+import './globals.css';
+import { NotificationProvider } from '@/controller/notificationController';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Link from 'next/link';
+import Header from '@/components/Header/Header';
 
-// Metadata
 export const metadata: Metadata = {
-	// title: process.env.NEXT_PUBLIC_WEB_NAME,
-	creator: 'Shinjuuichi',
-	description: 'skidididididksididsidi',
-}
+  creator: 'Shinjuuichi',
+  description: 'skidididididksididsidi',
+};
 
-// Header Component
-function Header() {
-	return (
-		<header className='bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4'>
-			<nav className='container mx-auto flex justify-between items-center'>
-				<h1 className='text-xl font-bold'>{process.env.NEXT_PUBLIC_WEB_NAME}</h1>
-				<ul className='flex space-x-4'>
-					<li>
-						<Link href='/' className='hover:text-blue-200'>
-							Home
-						</Link>
-					</li>
-					<li>
-						<Link href='/about' className='hover:text-blue-200'>
-							About
-						</Link>
-					</li>
-					<li>
-						<Link href='/contact' className='hover:text-blue-200'>
-							Contact
-						</Link>
-					</li>
-				</ul>
-			</nav>
-		</header>
-	)
-}
-
-// Footer Component
 function Footer() {
-	return (
-		<footer className='bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 mt-auto'>
-			<div className='container mx-auto text-center'>
-				<p>
-					© {new Date().getFullYear()} {process.env.NEXT_PUBLIC_WEB_NAME}. All rights reserved.
-				</p>
-				<div className='mt-2'>
-					<Link href='/privacy' className='hover:text-blue-200 mx-2'>
-						Privacy Policy
-					</Link>
-					<Link href='/terms' className='hover:text-blue-200 mx-2'>
-						Terms of Service
-					</Link>
-				</div>
-			</div>
-		</footer>
-	)
+  return (
+    <footer className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-8 mt-auto">
+      <div className="container mx-auto px-4 text-center">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <h2 className="text-xl font-bold mb-2">
+              {process.env.NEXT_PUBLIC_WEB_NAME || 'Site Name'}
+            </h2>
+            <p className="text-sm text-blue-100">
+              Bringing amazing experiences since 2023
+            </p>
+          </div>
+
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+            <Link
+              href="/privacy"
+              className="text-blue-100 hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-blue-100 hover:text-white transition-colors"
+            >
+              Terms of Service
+            </Link>
+            <Link
+              href="/contact"
+              className="text-blue-100 hover:text-white transition-colors"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-6 border-t border-blue-400/30">
+          <p className="text-sm text-blue-100">
+            © {new Date().getFullYear()}{' '}
+            {process.env.NEXT_PUBLIC_WEB_NAME || 'Site Name'}. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
-// Root Layout
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	return (
-		<html lang='en'>
-			<head>
-				<link rel='icon' href='/favicon.ico' />
-			</head>
-			<body className='antialiased flex flex-col min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-blue-900 vsc-initialized'>
-				<NotificationProvider>
-					<ToastContainer position='top-right' autoClose={3000} />
-					<Header />
-					<main className='flex-grow'>{children}</main>
-					<Footer />
-				</NotificationProvider>
-			</body>
-		</html>
-	)
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className="antialiased flex flex-col min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-blue-900 vsc-initialized">
+        <NotificationProvider>
+          <ToastContainer position="top-right" autoClose={3000} />
+          <Header />
+          <main className="flex-grow pt-24 pb-8 px-4">{children}</main>
+          <Footer />
+        </NotificationProvider>
+      </body>
+    </html>
+  );
 }

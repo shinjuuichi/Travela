@@ -2,16 +2,22 @@
 
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { StarIcon, MapPinIcon } from '@heroicons/react/24/solid';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Image from 'next/image';
 import { venues } from '@/data/venues';
 
+type FilterState = {
+  area: string;
+  type: string;
+  priceRange: string;
+};
+
 export default function Home() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<FilterState>({
     area: '',
     type: '',
     priceRange: '',
@@ -20,7 +26,9 @@ export default function Home() {
   const popularVenues = venues.filter((venue) => venue.rating >= 4.5);
   const featuredVenues = venues.filter((venue) => venue.featured);
 
-  const handleFilterChange = (e) => {
+  const handleFilterChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
     const newFilters = { ...filters, [name]: value };
     setFilters(newFilters);

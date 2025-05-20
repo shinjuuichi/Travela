@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -26,14 +25,6 @@ export default function About() {
 
   return (
     <>
-      <Head>
-        <title>About Travela - Discover Our Mission & Team</title>
-        <meta
-          name="description"
-          content="Learn about Travela, our mission to connect food lovers with authentic local experiences, and meet the passionate team behind the platform."
-        />
-      </Head>
-
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">About Travela</h1>
@@ -155,9 +146,9 @@ export default function About() {
                 <p>
                   Our team of food lovers personally visits and reviews each
                   venue to ensure we provide honest, detailed information that
-                  helps our users make the best dining choices. We're passionate
-                  about supporting local businesses and helping food lovers
-                  discover new favorites.
+                  helps our users make the best dining choices. We&apos;re
+                  passionate about supporting local businesses and helping food
+                  lovers discover new favorites.
                 </p>
               </div>
             </div>
@@ -191,7 +182,7 @@ export default function About() {
             <div className="bg-gray-50 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-3">Community</h3>
               <p className="text-gray-600">
-                We're building a community of food lovers who share their
+                WeWe&apos;re building a community of food lovers who share their
                 experiences and recommendations.
               </p>
             </div>
@@ -231,7 +222,7 @@ export default function About() {
                 <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4">
                   <Image
                     src={member.image || '/placeholder.svg'}
-                    alt={member.name}
+                    alt={member.name || 'Team member'}
                     width={96}
                     height={96}
                     className="w-full h-full object-cover"

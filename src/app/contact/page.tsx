@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import Head from 'next/head';
 import {
   EnvelopeIcon,
@@ -9,19 +9,33 @@ import {
 } from '@heroicons/react/24/outline';
 import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lucide-react';
 
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type FormStatus = {
+  submitted: boolean;
+  success: boolean;
+  message: string;
+};
+
 export default function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: '',
   });
-  const [formStatus, setFormStatus] = useState({
+  const [formStatus, setFormStatus] = useState<FormStatus>({
     submitted: false,
     success: false,
     message: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -29,7 +43,7 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Validate form
@@ -82,15 +96,14 @@ export default function Contact() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl max-w-2xl mx-auto">
-            We'd love to hear from you! Whether you have a question, feedback,
-            or want to collaborate, our team is here to help.
+            We&apos;d love to hear from you! Whether you have a question,
+            feedback, or want to collaborate, our team is here to help.
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
 
@@ -151,7 +164,7 @@ export default function Contact() {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows="5"
+                  rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   placeholder="How can we help you?"
                 ></textarea>

@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, ChangeEvent, FormEvent } from 'react';
-import Head from 'next/head';
 import {
   EnvelopeIcon,
-  PhoneIcon,
   MapPinIcon,
+  PhoneIcon,
 } from '@heroicons/react/24/outline';
-import { FacebookIcon, InstagramIcon, TwitterIcon } from 'lucide-react';
+import { FacebookIcon, InstagramIcon } from 'lucide-react';
+import Head from 'next/head';
+import { ChangeEvent, FormEvent, useState } from 'react';
 
 type FormData = {
   name: string;
@@ -247,12 +247,6 @@ export default function Contact() {
                   className="bg-indigo-100 p-3 rounded-full text-indigo-600 hover:bg-indigo-200 transition duration-300"
                 >
                   <InstagramIcon className="h-6 w-6" />
-                </a>
-                <a
-                  href="#"
-                  className="bg-indigo-100 p-3 rounded-full text-indigo-600 hover:bg-indigo-200 transition duration-300"
-                >
-                  <TwitterIcon className="h-6 w-6" />
                 </a>
               </div>
             </div>
